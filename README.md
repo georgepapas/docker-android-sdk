@@ -21,7 +21,7 @@ Run the container and mount your project directory to ``/opt/app``
 
 ## Tags  
 
-### Android 23
+### android-23
   - Android ``SDK 24.4.1``
   - Build ``tools 23.0.3``
   - Api ``android_23``
