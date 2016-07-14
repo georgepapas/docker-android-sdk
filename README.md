@@ -13,7 +13,7 @@ Create a container that will hold your gradle dependencies. This will ensure you
 
 ``docker create --name gradle-caches georgepapas/gradle-caches:latest``
 
-Then mount this containers volumnes when running a build:
+Then mount this container's volumes when running a build:
 
 ``docker run --rm --volumes-from gradle-caches -v $(pwd):/opt/app georgepapas/android-sdk:latest clean assemble``
 
