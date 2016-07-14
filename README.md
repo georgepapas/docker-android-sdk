@@ -3,7 +3,20 @@
 Run the container and mount your project directory to ``/opt/app``
 
 ## Usage
+
+Perform a build by running the following command:
+
 ``docker run --rm -v $(pwd):/opt/app georgepapas/android-sdk:latest clean assemble``
+
+### Save build time by creating a gradle cache volume...
+Create a container that will hold your gradle dependencies. This will ensure you don't have to download all your gradle dependencies on each build.
+
+``docker create --name gradle-caches georgepapas/gradle-caches:latest``
+
+Then mount this containers volumnes when running a build:
+
+``docker run --rm --volumes-from gradle-caches -v $(pwd):/opt/app georgepapas/android-sdk:latest clean assemble``
+
 
 ## Environment
 ``ANDROID_HOME=/opt/android-sdk-linux``
